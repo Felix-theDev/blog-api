@@ -22,7 +22,7 @@ services:
     ports:
       - "8080:8080"
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/blogdb
+      SPRING_DATASOURCE_URL: jdbc:mysql://turntable.proxy.rlwy.net:26480/blogdb
       SPRING_DATASOURCE_USERNAME: user
       SPRING_DATASOURCE_PASSWORD: admin
       SPRING_JPA_HIBERNATE_DDL_AUTO: update
