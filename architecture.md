@@ -24,7 +24,7 @@ This document outlines the deployment decisions and architecture used for the Bl
 
 ## 🌐 Deployment Strategy
 
-### Platform: [Render.com](https://render.com)
+### Platform: [Railway.com](https://blog-api-prod.up.railway.app/)
 
 **Why Railway?**
 - Simple Docker-based deployments

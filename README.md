@@ -42,7 +42,7 @@ This is a simple blog backend API for creating, listing, updating, approving, an
 `   docker-compose up --build`
 
    The app will be running at:
-   📍 http://localhost:8080
+   📍 https://blog-api-prod.up.railway.app/
 
 
 ## 🔐 Authentication
@@ -92,7 +92,7 @@ App listens on localhost:8080
 ## ☁️ Deployment
 
 Live app deployed on Railway:
-🔗 https://your-app-name.onrender.com
+🔗 https://blog-api-prod.up.railway.app/
 
 For deployment details, see architecture.md
 
