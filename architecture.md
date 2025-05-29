@@ -12,13 +12,13 @@ This document outlines the deployment decisions and architecture used for the Bl
 
 ## 📦 Tech & Hosting Stack
 
-| Component         | Choice                 |
-|------------------|------------------------|
-| Backend           | Java + Spring Boot     |
-| Authentication    | JWT + Spring Security  |
-| Database          | MySQL (Dockerized)     |
-| Deployment        | Docker on Render       |
-| CI/CD             | GitHub → Render        |
+| Component         | Choice                |
+|------------------|-----------------------|
+| Backend           | Java + Spring Boot    |
+| Authentication    | JWT + Spring Security |
+| Database          | MySQL (Dockerized)    |
+| Deployment        | Docker on Railway     |
+| CI/CD             | GitHub → Railway      |
 
 ---
 
@@ -26,7 +26,7 @@ This document outlines the deployment decisions and architecture used for the Bl
 
 ### Platform: [Render.com](https://render.com)
 
-**Why Render?**
+**Why Railway?**
 - Simple Docker-based deployments
 - Built-in managed MySQL support
 - HTTPS and autoscaling included
@@ -75,7 +75,7 @@ JWT tokens are passed via `Authorization: Bearer <token>`. Spring Security handl
     - Redis for caching blog queries
 
 4. **Load Balancing**
-    - Render handles this automatically for web services
+    - Railway handles this automatically for web services
 
 ---
 

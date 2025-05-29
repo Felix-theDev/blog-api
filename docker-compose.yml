@@ -5,12 +5,12 @@ services:
     image: mysql:8.0
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: blogdb
-      MYSQL_USER: user
-      MYSQL_PASSWORD: admin
+      MYSQL_ROOT_PASSWORD: jcKmofYYSrXYExIPlskfCVMUzrZnFQlH
+      MYSQL_DATABASE: railway
+      MYSQL_USER: root
+      MYSQL_PASSWORD: jcKmofYYSrXYExIPlskfCVMUzrZnFQlH
     ports:
-      - "3307:3306"
+      - "3307:3306"  # Only useful for local debugging
     volumes:
       - db_data:/var/lib/mysql
 
@@ -22,10 +22,17 @@ services:
     ports:
       - "8080:8080"
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://turntable.proxy.rlwy.net:26480/blogdb
-      SPRING_DATASOURCE_USERNAME: user
-      SPRING_DATASOURCE_PASSWORD: admin
+      SPRING_APPLICATION_NAME: blog
+      SPRING_DATASOURCE_URL: jdbc:mysql://maglev.proxy.rlwy.net:10197/railway
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: jcKmofYYSrXYExIPlskfCVMUzrZnFQlH
+      SPRING_DATASOURCE_DRIVER_CLASS_NAME: com.mysql.cj.jdbc.Driver
       SPRING_JPA_HIBERNATE_DDL_AUTO: update
+      SPRING_JPA_SHOW_SQL: "true"
+      SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT: org.hibernate.dialect.MySQL8Dialect
+      SPRING_JPA_PROPERTIES_HIBERNATE_FORMAT_SQL: "true"
+      LOGGING_LEVEL_ORG_HIBERNATE_TYPE_DESCRIPTOR_SQL_BASICBINDER: TRACE
+      JWT_SECRET: 15f2f1b429027f7f7893c412f6eb752a81630e74726811c80220a8ef7e470498
 
 volumes:
   db_data:

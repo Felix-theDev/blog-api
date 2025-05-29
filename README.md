@@ -11,7 +11,7 @@ This is a simple blog backend API for creating, listing, updating, approving, an
 - JWT-based authentication
 - MySQL as the database
 - Docker + Docker Compose support
-- Cloud-ready (Render deployment)
+- Cloud-ready (Railway deployment)
 
 ---
 
@@ -91,7 +91,7 @@ App listens on localhost:8080
 
 ## ☁️ Deployment
 
-Live app deployed on Render:
+Live app deployed on Railway:
 🔗 https://your-app-name.onrender.com
 
 For deployment details, see architecture.md
