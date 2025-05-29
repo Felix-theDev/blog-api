@@ -1,14 +1,15 @@
-# Use official OpenJDK image
 FROM eclipse-temurin:21-jdk-alpine
 
-# Set working directory
 WORKDIR /app
 
-# Copy the built jar
-COPY target/*.jar app.jar
+# Copy source code
+COPY . .
 
-#Expose the applcation port
-EXPOSE 8080
+# Install Maven
+RUN apk add --no-cache maven
 
-# Run the application
-ENTRYPOINT ["java", "-jar", "app.jar"]
+# Build the project
+RUN mvn clean package -DskipTests
+
+# Use built JAR from target
+CMD ["java", "-jar", "target/blog-0.0.1-SNAPSHOT.jar"]
