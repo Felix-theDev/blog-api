@@ -1,15 +1,17 @@
-FROM eclipse-temurin:21-jdk-alpine
+FROM eclipse-temurin:21-jre-alpine
 
 WORKDIR /app
 
-# Copy source code
-COPY . .
 
-# Install Maven
 RUN apk add --no-cache maven
 
-# Build the project
+COPY . .
+
+
 RUN mvn clean package -DskipTests
 
-# Use built JAR from target
-CMD ["java", "-jar", "target/blog-0.0.1-SNAPSHOT.jar"]
+
+EXPOSE 8080
+
+# Limit JVM heap size to prevent memory overuse on Railway's 500MB limit
+ENTRYPOINT ["java", "-Xmx256m", "-Xms128m", "-jar", "target/blog-0.0.1-SNAPSHOT.jar"]
